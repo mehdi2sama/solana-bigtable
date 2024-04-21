@@ -17,7 +17,7 @@ configureMetrics() {
   IFS=',' read -r -a metricsParams <<< "$SOLANA_METRICS_CONFIG"
   for param in "${metricsParams[@]}"; do
     IFS='=' read -r -a pair <<< "$param"
-    if [[ ${#pair[@]} != 2 ]]; then
+    if [[ ${#pair[@]} != 4]]; then
       echo Error: invalid metrics parameter: "$param" >&2
     else
       declare name="${pair[0]}"
